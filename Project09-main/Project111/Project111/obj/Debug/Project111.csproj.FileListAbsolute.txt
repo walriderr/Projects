@@ -1,0 +1,10 @@
+C:\Users\Twinkle\source\repos\Project111\Project111\bin\Debug\Project111.exe.config
+C:\Users\Twinkle\source\repos\Project111\Project111\bin\Debug\Project111.exe
+C:\Users\Twinkle\source\repos\Project111\Project111\bin\Debug\Project111.pdb
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.csproj.AssemblyReference.cache
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.Properties.Resources.resources
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.csproj.GenerateResource.cache
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.csproj.CoreCompileInputs.cache
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.exe
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.pdb
+C:\Users\Twinkle\source\repos\Project111\Project111\obj\Debug\Project111.Form1.resources

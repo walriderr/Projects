@@ -1,0 +1,40 @@
+﻿<Window x:Class="Project04.WinGauss"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project04"
+        mc:Ignorable="d"
+        Title="WinGauss"
+        Height="450" Width="800"
+        Background="Green"
+        WindowStartupLocation="CenterScreen" Closing="S_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Text="1" x:Name="tb_a" Width="100" Height="60" Margin="0,30,280,0" BorderBrush="Black" BorderThickness="2" Background="White" FontSize="48" TextAlignment="Center"/>
+        <TextBlock Text="X" Foreground="Black" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,40,140,0"/>
+        <TextBlock Width="30" Text="2" FontSize="36" FontWeight="Bold" Margin="338,16,424,42" TextAlignment="Center"/>
+        <TextBox Text="1" x:Name="tb_b" Width="100" Height="60" Margin="407,35,285,5" BorderBrush="Black" BorderThickness="2" Background="White" FontSize="48" TextAlignment="Center"/>
+        <TextBlock Text="X" Foreground="Black" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="515,46,253,6"/>
+        <TextBlock x:Name="sign2" Width="30" Text="+" Height="69" Margin="544,35,218,0" TextAlignment="Center" FontWeight="Bold" FontSize="48" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <TextBox Text="1" x:Name="tb_c" Width="100" Height="60" Margin="595,31,97,9" BorderBrush="Black" BorderThickness="2" Background="White" FontSize="48" TextAlignment="Center"/>
+        <TextBlock x:Name="sign2_Copy" Width="30" Text="+" Height="69" Margin="359,33,403,0" TextAlignment="Center" FontWeight="Bold" FontSize="48" VerticalAlignment="Top" Grid.RowSpan="2"/>
+
+        <Button x:Name="btn_Result" Grid.Row="1" Margin="30" Content="Решить" FontSize="48" FontWeight="Bold" Background="White" BorderThickness="2" BorderBrush="Black" Click="btn_Result_Click"/>
+
+        <Border Grid.Row="2" Margin="20" BorderBrush="Black" BorderThickness="2">
+            <TextBlock x:Name="tb_Result1" Background="White" Text="" TextAlignment="Center" FontSize="36"/>
+        </Border>
+
+        <Border Grid.Row="3" Margin="20" BorderBrush="Black" BorderThickness="2">
+            <TextBlock x:Name="tb_Result2" Background="White" Text="" TextAlignment="Center" FontSize="36"/>
+        </Border>
+
+    </Grid>
+</Window>

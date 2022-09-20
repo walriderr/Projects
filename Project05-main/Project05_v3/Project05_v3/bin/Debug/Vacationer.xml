@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vacationers>
+  <Vacationer fio="Иваненко Дмитрий Александрович">   
+    <education>Среднее</education>
+    <socialStatus>Студент</socialStatus>
+	<income>50000</income>
+	<city>Сочи</city>
+    <place>Отель</place>
+	<age>17</age>
+	<year>2022</year>
+	<mouth>8</mouth>
+	<day>20</day>
+	<durationRest>14</durationRest>
+	<amountSpent>80000</amountSpent>
+  </Vacationer>
+  
+  <Vacationer fio="Ремесков Данил Вячеславович">   
+    <education>Среднее образование</education>
+    <socialStatus>Студент</socialStatus>
+	<income>55000</income>
+	<city>Адлер</city>
+    <place>Частный дом</place>
+	<age>17</age>
+	<year>2022</year>
+	<mouth>8</mouth>
+	<day>11</day>
+	<durationRest>7</durationRest>
+	<amountSpent>43000</amountSpent>
+  </Vacationer>
+  
+  <Vacationer fio="Морозова Елена Сергеевна">   
+    <education>Высшее образование</education>
+    <socialStatus>Преподаватель</socialStatus>
+	<income>25000</income>
+	<city>Геленджик</city>
+    <place>Съемная Квартира</place>
+	<age>19</age>
+	<year>2022</year>
+	<mouth>7</mouth>
+	<day>2</day>
+	<durationRest>7</durationRest>
+	<amountSpent>45000</amountSpent>
+  </Vacationer>
+  
+  <Vacationer fio="Костюничев Андрей Игоревич">   
+    <education>5 классов</education>
+    <socialStatus>Богатый</socialStatus>
+	<city>Дубаи</city>
+	<income>350000</income>
+    <place>Дом у моря</place>
+	<age>19</age>
+	<year>2022</year>
+	<mouth>6</mouth>
+	<day>01</day>
+	<durationRest>60</durationRest>
+	<amountSpent>600000</amountSpent>
+  </Vacationer>
+  
+  <Vacationer fio="Седых Владимир Евгеньевич">   
+    <education>Среднее образование</education>
+    <socialStatus>Букмекер</socialStatus>
+	<income>40000</income>
+	<city>Лазаревск</city>
+    <place>Съемная квартира</place>
+	<age>18</age>
+	<year>2022</year>
+	<mouth>8</mouth>
+	<day>15</day>
+	<durationRest>4</durationRest>
+	<amountSpent>6000</amountSpent>
+  </Vacationer> 
+</Vacationers>

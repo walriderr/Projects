@@ -1,0 +1,174 @@
+﻿<Window x:Class="Project_DemEkz.WinEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_DemEkz"
+        mc:Ignorable="d"
+        Title="WinEdit" 
+        Height="700" Width="1100"
+        FontFamily="Verdana"
+        WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style x:Key="tbSearch" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Background" BorderThickness="2" CornerRadius="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}" IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FF383C44"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FFC1C1"/>
+                                <!--<Setter Property="Background" Value="#FFC1C1"/>-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="btnMenu" TargetType="Button">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="10,20,10,0"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Foreground" Value="#D32B39"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderBrush="White" BorderThickness="4" Background="Transparent">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True" >
+                                <Setter Property="BorderBrush" TargetName="border" Value="#D32B39"/>
+                                <Setter Property="Width" TargetName="border" Value="240"/>
+                                <Setter Property="Height" TargetName="border" Value="51"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="btnAdd" TargetType="Button">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="266" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--Menu-->
+        <StackPanel Background="#FFC1C1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" >
+            <Image Source="Assets/img-ico.png" Margin="52"/>
+
+            <Button x:Name="btnList" Style="{StaticResource btnMenu}" Content="Список материалов" Click="btnList_Click"/>
+            <Button x:Name="btnSuppliers" Style="{StaticResource btnMenu}" Content="Поставщики" Click="btnSuppliers_Click"/>
+            <Button x:Name="btnChange" Style="{StaticResource btnMenu}" Content="Изменить"/>
+        </StackPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="tbName" Style="{StaticResource tbSearch}" Width="700" Text="" Grid.Row="0"/>
+            <TextBlock IsHitTestVisible="False" Text="Название" FontSize="16" Foreground="LightGray" Grid.Row="0" VerticalAlignment="Center" Margin="73,0,0,0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=tbName}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <TextBox x:Name="tbCategory" Style="{StaticResource tbSearch}" Width="700" Text="" Grid.Row="1"/>
+            <TextBlock IsHitTestVisible="False" Text="Категория товара" FontSize="16" Foreground="LightGray" Grid.Row="1" VerticalAlignment="Center" Margin="73,0,0,0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=tbCategory}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <TextBox x:Name="tbPrice" Style="{StaticResource tbSearch}" Width="700" Text="" Margin="0,0,0,0" Grid.Row="2"/>
+            <TextBlock IsHitTestVisible="False" Text="Стоимость" FontSize="16" Foreground="LightGray" Grid.Row="2" VerticalAlignment="Center" Margin="73,0,0,0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=tbPrice}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <TextBox x:Name="tbPostavka" Style="{StaticResource tbSearch}" Width="700" Text="" Margin="0,0,0,0" Grid.Row="3"/>
+            <TextBlock IsHitTestVisible="False" Text="Поставщик" FontSize="16" Foreground="LightGray" Grid.Row="3" VerticalAlignment="Center" Margin="73,0,0,0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=tbPostavka}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Button x:Name="btnAdd" Style="{StaticResource btnAdd}" Content="Добавить" FontSize="17" Foreground="#D32B39" Width="130" Height="60" Grid.Row="4" HorizontalAlignment="Right" Margin="0,0,100,0" Click="btnAdd_Click" />
+        </Grid>
+    </Grid>
+</Window>

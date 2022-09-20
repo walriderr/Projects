@@ -1,0 +1,150 @@
+﻿<Window x:Class="Project_DemEkz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_DemEkz"
+        mc:Ignorable="d"
+        Title="Большая пачка"
+        Height="700" Width="1100"
+        FontFamily="Verdana"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="tbSearch" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Background" BorderThickness="2" CornerRadius="0" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}" IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FF383C44"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FFC1C1"/>
+                                <!--<Setter Property="Background" Value="#FFC1C1"/>-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="btnMenu" TargetType="Button">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="10,20,10,0"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Foreground" Value="#D32B39"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderBrush="White" BorderThickness="4" Background="Transparent">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True" >
+                                <Setter Property="BorderBrush" TargetName="border" Value="#D32B39"/>
+                                <Setter Property="Width" TargetName="border" Value="240"/>
+                                <Setter Property="Height" TargetName="border" Value="51"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="266" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Menu-->
+        <StackPanel Background="#FFC1C1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" >
+            <Image Source="Assets/img-ico.png" Margin="52"/>
+
+            <Button x:Name="btnList" Style="{StaticResource btnMenu}" Content="Список материалов"/>
+            <Button x:Name="btnSuppliers" Style="{StaticResource btnMenu}" Content="Поставщики" Click="btnSuppliers_Click"/>
+            <Button x:Name="btnChange" Style="{StaticResource btnMenu}" Content="Изменить" Click="btnChange_Click"/>
+        </StackPanel>
+
+        <!--Search panel-->
+        <WrapPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Grid>
+                <TextBox x:Name="TbSearch" Style="{StaticResource tbSearch}" Width="250" Text="" Margin="60,0,0,0" TextChanged="TbSearch_TextChanged"/>
+                <TextBlock IsHitTestVisible="False" Margin="73,6,31,7" Text="Название" FontSize="16" Foreground="LightGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=TbSearch}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            </Grid>
+
+            <!--Types-of-materials-->
+            <ComboBox x:Name="cbTypes" BorderThickness="2" Margin="50,0,0,0" Width="150" IsEditable="True" IsReadOnly="True" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cb_SelectionChanged"  >
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="BorderBrush" Value="#FFC1C1"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+
+            <!--Filter-->
+            <ComboBox x:Name="cbFilter" BorderThickness="2" Margin="50,0,0,0" Width="150" IsEditable="True" IsReadOnly="True" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cb_SelectionChanged" >
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="BorderBrush" Value="#FFC1C1"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+                <ComboBoxItem Content="Без фильтра"/>
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+        </WrapPanel>
+
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <WrapPanel x:Name="wrap" HorizontalAlignment="Center" >
+            </WrapPanel>
+        </ScrollViewer>
+
+        <TextBlock x:Name="tbListClear" Text="Ничего не найдено" FontSize="35" Foreground="DarkGray" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.csproj.AssemblyReference.cache
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\MainWindow.g.cs
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\App.g.cs
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6_MarkupCompile.cache
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6_MarkupCompile.lref
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\bin\Debug\Project07_6.exe.config
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\bin\Debug\Project07_6.exe
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\bin\Debug\Project07_6.pdb
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\MainWindow.baml
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.g.resources
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.Properties.Resources.resources
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.csproj.GenerateResource.cache
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.csproj.CoreCompileInputs.cache
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.exe
+C:\Users\Студент.PC8\Documents\GitHub\Dima\Project07\Project07_6\Project07_6\obj\Debug\Project07_6.pdb

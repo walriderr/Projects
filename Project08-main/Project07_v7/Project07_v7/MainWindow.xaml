@@ -1,0 +1,173 @@
+﻿<Window x:Class="Project07_v7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project07_v7"
+        mc:Ignorable="d"
+        Title="Реализованный товар"
+        Height="550" Width="900"
+        Background="#ecdfce"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="btn" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="tb_e-mail" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Background" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}" IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FF383C44"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True" >
+                                <Setter Property="BorderBrush" Value="#ecdfce"/>
+                                <!--<Setter Property="Background" Value="#FFC1C1"/>-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="btn_wm" TargetType="Button">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Background="#ececea" Grid.Column="0">
+            <Image Source="Assets/Twinkle_logo_3.png" Margin="5" />
+
+            <Button Style="{StaticResource btn}" x:Name="btn_Home" Width="50" Height="50" Margin="0,10,0,0" >
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/home_icon.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Style="{StaticResource btn}" x:Name="btn_Edit" Width="50" Height="50" Margin="0,20,0,0" Click="btn_Edit_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/edit_icon.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Style="{StaticResource btn}" x:Name="btn_Add" Width="50" Height="50" Margin="0,20,0,0" Click="btn_Add_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/add_icon.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Style="{StaticResource btn}" x:Name="btn_Delete" Width="50" Height="50" Margin="0,20,0,0" Click="btn_Delete_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/delete_icon.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <Border Width="1000" Height="1000" BorderThickness="1" Grid.Column="1" BorderBrush="Gray" Margin="0,-21,-236,-458"/>
+
+        <Grid Grid.Column="1">
+
+            <Border Background="White" BorderThickness="0" Margin="40" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="245"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="260"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Ввод e-mail-->
+                    <Grid Grid.Column="0" >
+                        <TextBlock Text="Скидка 10%" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Arial" Margin="0,0,0,110"/>
+                        <TextBlock Text="ДОПОЛНИТЕЛЬНО" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="22" FontFamily="Arial" Margin="0,0,0,55"/>
+                        <TextBlock Text="За подписку на наши новости" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Thin" FontSize="13" FontFamily="Arial" Margin="0,0,0,15"/>
+
+                        <TextBox x:Name="tb_email" Style="{StaticResource tb_e-mail}" Margin="10,60,10,0" />
+                        <TextBlock IsHitTestVisible="False" Text="Введите свой e-mail" FontSize="12" Foreground="Gray" FontWeight="Thin" FontFamily="Arial" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Margin="0,60,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=tb_email}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+
+                        <Button Style="{StaticResource btn_wm}" Content="Для женщин" x:Name="btn_women" Background="#2796ff" BorderBrush="Transparent" Width="110" Foreground="White" FontFamily="Arial" FontSize="11" FontWeight="Thin" Height="30" VerticalAlignment="Bottom" Margin="10,0,140,32"/>
+                        <Button Style="{StaticResource btn_wm}" Content="Для Мужчин" x:Name="btn_man" Background="#2796ff" BorderBrush="Transparent" Width="110" Foreground="White" FontFamily="Arial" FontSize="11" FontWeight="Thin" Height="30" VerticalAlignment="Bottom" Margin="140,0,10,32"/>
+                    </Grid>
+
+                    <!--Сыллки на приложения-->
+                    <Grid Grid.Column="1">
+                        <Image Source="Assets/png_shops/background_apps.png" HorizontalAlignment="Right"/>
+
+                        <TextBlock Text="Мобильное приложение" FontFamily="Arial" FontWeight="DemiBold" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="218,0,0,115"/>
+                        <TextBlock Text="Покупать еще удобнее" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Thin" FontSize="12" FontFamily="Arial" Margin="210,0,0,75"/>
+
+                        <Button Style="{StaticResource btn}" BorderBrush="Transparent" Width="120" Height="35" Margin="213,15,0,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Assets/png_shops/app-banner_ios.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        <Button Style="{StaticResource btn}" BorderBrush="Transparent" Width="120" Height="35" Margin="213,115,0,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Assets/png_shops/app-banner_android.png"/>
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+
+                    <!--Иконки магазинов-->
+                    <Grid Grid.ColumnSpan="2" Grid.Row="2">
+                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal"  >
+                            <Image Source="Assets/png_shops/nike.png" Margin="10"/>
+                            <Image Source="Assets/png_shops/asics.png" Margin="10"/>
+                            <Image Source="Assets/png_shops/tommy.png" Margin="10"/>
+                            <Image Source="Assets/png_shops/gap.png" Margin="10"/>
+                            <Image Source="Assets/png_shops/adidas.png" Margin="10"/>
+                        </WrapPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
